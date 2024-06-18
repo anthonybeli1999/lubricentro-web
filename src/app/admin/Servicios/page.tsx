@@ -5,6 +5,7 @@ import Paginacion from '@/app/components/paginacion/paginacion';
 import { buscarServicios } from '@/app/services/serviciosService';
 import { buscarVehiculos } from '@/app/services/vehiculosService';
 import PlusIcon from '@heroicons/react/24/outline/PlusIcon'
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 
@@ -58,9 +59,12 @@ export default function Servicios() {
 
   return (
     <div className="w-full max-w-screen-xl mx-auto grid grid-cols-1 gap-2 px-4">
+      <div className="flex items-center pt-4 pb-2 text-center">
+        <h1 className="text-xl font-semibold w-full">LISTADO DE SERVICIOS</h1>
+      </div>
       <div className="flex justify-between items-center pt-4 pb-2">
         <h1 className="text-lg lg:text-xl font-semibold">
-          Listado de Servicios / <span className='font-black'>{vehiculoSeleccionado.placa}</span>
+          <Link className='text-blue-600' href='/admin/Vehiculos'>Vehículos</Link> / <span className='font-black'>{vehiculoSeleccionado.placa}</span>
         </h1>
         <ButtonIcon texto='Nuevo' icono={<PlusIcon className="w-5" />} onClick={() => router.push('/admin/Servicios/agregarServicio')} />
       </div>

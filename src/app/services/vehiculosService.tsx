@@ -30,5 +30,10 @@ const modificarVehiculo = async (body: any) => {
     return respuesta
 }
 
-export { obtenerVehiculos, obtenerVehiculosConPagosPendientes,
+const eliminarVehiculo = async (body: any) => {
+    const respuesta = await put(ruta + 'eliminar', body);
+    return respuesta
+}
+
+export { obtenerVehiculos, obtenerVehiculosConPagosPendientes, eliminarVehiculo,
     buscarVehiculos, agregarNuevoVehiculo, modificarVehiculo }

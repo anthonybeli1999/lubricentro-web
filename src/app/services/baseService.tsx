@@ -1,5 +1,5 @@
 
-const rutaPrincipal = 'http://192.168.18.242:8080/api/';
+const rutaPrincipal = 'http://192.168.18.214:8080/api/';
 
 const get = async (ruta: string) => {
     try {

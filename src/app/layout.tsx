@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar/navbar";
+import Link from "next/link";
+import { EyeDropperIcon, HomeIcon, TruckIcon, UserIcon, WrenchIcon } from "@heroicons/react/24/outline";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,8 +20,52 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={inter.className}>
+        {/* 
         <Navbar />
-        <main className="bg-gray-100 min-h-screen flex flex-col">
+        */}
+        <nav className='fixed top-0 left-0 h-full bg-white flex flex-col w-16 lg:w-64'>
+          <div className='flex flex-col'>
+            
+            <div className='hidden lg:flex lg:p-4 justify-center'>
+              <div className='p-2 text-xl font-bold rounded-lg'>
+                Bienvenido
+              </div>
+            </div>
+            
+            <div className='lg:hidden flex lg:p-4 justify-center'>
+              <div className='p-4 rounded-lg hover:bg-slate-700 hover:text-white'>
+                <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                  <rect y='4' width='24' height='2' fill='currentColor'/>
+                  <rect y='11' width='24' height='2' fill='currentColor'/>
+                  <rect y='18' width='24' height='2' fill='currentColor'/>
+                </svg>
+              </div>
+            </div>
+            
+            <div className='hidden lg:flex lg:flex-col items-center justify-center px-4'>
+              <Link className='p-4 w-full flex rounded-lg hover:bg-slate-700 hover:text-white' href={'/'}><span className='mr-2'><HomeIcon width={24} height={24} /></span> Inicio</Link>
+              {
+                /*
+                <Link className='p-4 w-full flex rounded-lg hover:bg-slate-700 hover:text-white' href={'/'}><span className='mr-2'><UserIcon width={24} height={24} /></span> Clientes</Link>
+                */
+              }
+              <Link className='p-4 w-full flex rounded-lg hover:bg-slate-700 hover:text-white' href={'/admin/Vehiculos'}><span className='mr-2'><TruckIcon width={24} height={24} /></span> Vehículos</Link>
+              <Link className='p-4 w-full flex rounded-lg hover:bg-slate-700 hover:text-white' href={'/admin/Mantenimiento'}><span className='mr-2'><WrenchIcon width={24} height={24} /></span> Mantenimiento</Link>
+            </div>
+            <div className='flex flex-col lg:hidden items-center justify-center'>
+              <Link className='p-4 rounded-lg hover:bg-slate-700 hover:text-white' href={'/'}><HomeIcon width={24} height={24} /></Link>
+              {
+                /*
+                <Link className='p-4 rounded-lg hover:bg-slate-700 hover:text-white' href={'/'}><UserIcon width={24} height={24} /></Link>
+                */
+              }
+              <Link className='p-4 rounded-lg hover:bg-slate-700 hover:text-white' href={'/admin/Vehiculos'}><TruckIcon width={24} height={24} /></Link>
+              <Link className='p-4 rounded-lg hover:bg-slate-700 hover:text-white' href={'/admin/Mantenimiento'}><WrenchIcon width={24} height={24} /></Link>
+            </div>
+          </div>
+        </nav>
+        <main className="min-h-screen bg-gray-100 flex flex-col pl-16 lg:pl-64">
+          <div className='max-w-screen-xl mx-auto bg-black w-full h-20 lg:h-32'></div>
           {children}
         </main>
       </body>

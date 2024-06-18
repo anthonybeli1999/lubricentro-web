@@ -8,7 +8,7 @@ export default function Home() {
         <h1 className="text-lg lg:text-xl font-semibold">Inicio</h1>
       </div>
       <div className="bg-white rounded-lg p-6">
-        Prueba
+        Bienvenidos al sistema de gestión Jachito
       </div>
     </div>
   );
